@@ -12,7 +12,7 @@ with open(f'./letter_templates/letter_{random.randint(1, 3)}.txt', 'r') as lette
     letter = letter_templates.read()
 
 for item in data:
-    if item['year'] == now.year and item['month'] == now.month and item['day'] == now.day:
+    if item['month'] == now.month and item['day'] == now.day:
         new_letter = letter.replace('[NAME]', item['name'])
         with smtplib.SMTP('smtp.gmail.com', 587) as connection:
             connection.starttls()
